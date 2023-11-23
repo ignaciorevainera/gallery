@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;800&display=swap');
+
+:root {
+    --white: hsla(0, 0%, 100%, 1);
+    --black: hsla(0, 0%, 0%, 1);
+    --night: hsla(132, 16%, 6%, 1);
+    --night-blur: hsla(132, 16%, 6%, .5);
+    --gunmetal: hsla(186, 78%, 11%, 1);
+    --border-radius: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    color: var(--white);
+    font-family: 'Roboto Slab', serif;
+}
+
+body {
+    background: var(--black);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: var(--night);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    animation: blur-header linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.header_title {
+    color: var(--white);
+    font-weight: 800;
+}
+
+@keyframes blur-header {
+    to {
+        background: var(--night-blur);
+        backdrop-filter: blur(10px);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: white;
+    }
+}
+
+.main {
+    flex-grow: 1;
+    columns: 2;
+    column-gap: 1rem;
+    padding: 1rem;
+}
+
+.media {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    animation: fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 25%;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        scale: 0;
+        transform: translateY(50%);
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    background-color: var(--gunmetal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 2rem .5rem;
+}
+
+.footer_copyright {
+    text-align: center;
+    font-size: clamp(.7rem, 2vw, 1.5rem);
+    font-weight: 600;
+}
+
+@media (width > 768px) {
+    .main {
+        columns: 3;
+    }
+}
+
+@media (width > 1024px) {
+    .main {
+        columns: 4;
+    }
+}

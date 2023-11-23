@@ -29,4 +29,4 @@ Este proyecto consiste en una galería de imágenes con un diseño moderno y res
 ¡Espero que disfrutes explorando la galería!
 
 ---
-Realizado por [Ignacio Jesús Revainera](https://github.com/ignaciorevainera) 😊# gallery
+Realizado por [Ignacio Jesús Revainera](https://github.com/ignaciorevainera) 😊
